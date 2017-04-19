@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.may.demo.repository.UserRepository">
+<resultMap id="UserResult" type="User">
+    <id property="id" column="id"/>
+    <result  property="userName" column="user_name"/>
+    <result  property="password" column="password"/>
+</resultMap>
+
+
+ <select id="findByName" parameterType="String" resultMap="UserResult">
+     select u.id ,u.user_name, u.password  from t_user u where u.user_name=#{userName}
+ </select>
+
+
+</mapper>
