@@ -12,5 +12,12 @@
      select u.id ,u.user_name, u.password  from t_user u where u.user_name=#{userName}
  </select>
 
+    <insert id="save" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+        <selectKey keyProperty="id" resultType="long" order="AFTER">
+            select last_insert_id() as id
+        </selectKey>
+        insert into t_user(user_name,password)
+        values (#{userName},#{password})
 
+    </insert>
 </mapper>
