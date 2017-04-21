@@ -40,8 +40,8 @@
     <bean id="dynamicDataSource" class="com.may.demo.datasource.ChooseDataSource">
         <property name="targetDataSources">
             <map key-type="java.lang.String">
-                <entry key="dataSource1" value-ref="dataSource_master"/>
-                <entry key="dataSource2" value-ref="dataSource_slave"/>
+                <entry key="dataSource_master" value-ref="dataSource_master"/>
+                <entry key="dataSource_slave" value-ref="dataSource_slave"/>
             </map>
         </property>
         <property name="defaultTargetDataSource" ref="dataSource_master"/>
